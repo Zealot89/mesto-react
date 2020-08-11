@@ -19,34 +19,34 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
         setCards(res.reverse());
       })
   }, []);
-  
+
   return (
-    <main class="content">
-      <section class="profile">
-        <div class="profile__container">
+    <main className="content">
+      <section className="profile">
+        <div className="profile__container">
           <button
             onClick={onEditAvatar}
             type="button"
-            class="profile__image-button"
+            className="profile__image-button"
           ></button>
-          <img class="profile__avatar" src={userAvatar} alt={userName} />
+          <img className="profile__avatar" src={userAvatar} alt={userName} />
         </div>
-        <div class="profile__info">
-          <h1 class="profile__title">{userName}</h1>
-          <p class="profile__subtitle">{userDescription}</p>
+        <div className="profile__info">
+          <h1 className="profile__title">{userName}</h1>
+          <p className="profile__subtitle">{userDescription}</p>
           <button
             onClick={onEditProfile}
-            class="profile__edit-button"
+            className="profile__edit-button"
             type="button"
           ></button>
         </div>
         <button
           onClick={onAddPlace}
-          class="profile__add-button"
+          className="profile__add-button"
           type="button"
         ></button>
       </section>
-      <section class="elements">
+      <section className="elements">
         <ul className="elements__list">
 
           {cards.map((item) =>

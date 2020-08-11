@@ -31,11 +31,12 @@ function App() {
     setIsOpenImage(false)
   }
   function handleCardClick(card) {
-    setIsOpenImage(true);
+
     setSelectedCard(card);
+    setIsOpenImage(true);
   }
   return (
-    <div class="page">
+    <div className="page">
       <Header />
       <Main
         onEditProfile={handleEditProfileClick}
@@ -52,33 +53,33 @@ function App() {
         btnText={"Сохранить"}
         close={closeAllPopups}
       >
-        <label class="popup__input-wrapper">
+        <label className="popup__input-wrapper">
           <input
-            class="popup__input popup__input_name "
+            className="popup__input popup__input_name "
             id="name"
-            placeholder="Имя"
+            placeHolder="Имя"
             name="name"
-            tabindex="1"
-            minlength="2"
-            maxlength="40"
+            tabIndex="1"
+            minLength="2"
+            maxLength="40"
             required
             type="text"
           />
-          <span class="popup__error" id="name-error"></span>
+          <span className="popup__error" id="name-error"></span>
         </label>
-        <label class="popup__input-wrapper">
+        <label className="popup__input-wrapper">
           <input
-            class="popup__input popup__input_activiti"
+            className="popup__input popup__input_activiti"
             id="activiti"
-            placeholder="Род занятий"
+            placeHolder="Род занятий"
             name="about"
-            tabindex="2"
+            tabIndex="2"
             type="text"
-            minlength="2"
-            maxlength="200"
+            minLength="2"
+            maxLength="200"
             required
           />
-          <span class="popup__error" id="activiti-error"></span>
+          <span className="popup__error" id="activiti-error"></span>
         </label>
       </PopupWidthForm>
       <PopupWidthForm
@@ -88,31 +89,31 @@ function App() {
         btnText={"Добавить"}
         close={closeAllPopups}
       >
-        <label class="popup__input-wrapper">
+        <label className="popup__input-wrapper">
           <input
-            class="popup__input popup__input_place"
+            className="popup__input popup__input_place"
             id="name-card"
-            placeholder="Название"
+            placeHolder="Название"
             name="name"
             tabindex="1"
             type="text"
-            minlength="1"
-            maxlength="30"
+            minLength="1"
+            maxLength="30"
             required
           />
-          <span class="popup__error" id="name-card-error"></span>
+          <span className="popup__error" id="name-card-error"></span>
         </label>
-        <label class="popup__input-wrapper">
+        <label className="popup__input-wrapper">
           <input
-            class="popup__input popup__input_link"
+            className="popup__input popup__input_link"
             id="link"
-            placeholder="Ссылка на картинку"
+            placeHolder="Ссылка на картинку"
             name="link"
-            tabindex="2"
+            tabIndex="2"
             type="url"
             required
           />
-          <span class="popup__error" id="link-error"></span>
+          <span className="popup__error" id="link-error"></span>
         </label>
       </PopupWidthForm>
       <PopupWidthForm
@@ -122,17 +123,17 @@ function App() {
         btnText={"Сохранить"}
         close={closeAllPopups}
       >
-        <label class="popup__input-wrapper">
+        <label className="popup__input-wrapper">
           <input
-            class="popup__input popup__input_link-avatar"
+            className="popup__input popup__input_link-avatar"
             id="link"
-            placeholder="Ссылка на картинку"
+            placeHolder="Ссылка на картинку"
             name="link"
-            tabindex="2"
+            tabIndex="2"
             type="url"
             required
           />
-          <span class="popup__error" id="link-error"></span>
+          <span className="popup__error" id="link-error"></span>
         </label>
       </PopupWidthForm>
       {isOpenImage && <ImagePopup close={closeAllPopups} card={selectedCard} />}
