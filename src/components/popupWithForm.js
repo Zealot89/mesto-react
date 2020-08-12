@@ -1,10 +1,10 @@
 import React from "react";
-function PopupWidthForm(props) {
+function PopupWithForm(props) {
   return (
     <section className={props.isOpen ? "popup popup_active" : "popup "}>
       <form
         name={props.name}
-        className="popup__form popup__form_profile"
+        className={`popup__form popup__form_${props.name}`}
         onSubmit={props.onSubmit}
       >
         <button
@@ -21,4 +21,4 @@ function PopupWidthForm(props) {
     </section>
   );
 }
-export default PopupWidthForm;
+export default PopupWithForm;

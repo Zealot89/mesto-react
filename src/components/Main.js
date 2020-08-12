@@ -1,7 +1,7 @@
 import React from "react";
-import { api } from "../utils/Api.js";
+import { api } from "../utils/api.js";
 import Card from './Card.js';
-function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onConfirmDelete, handleCardClick }) {
   const [userName, setUserName] = React.useState(false);
   const [userDescription, setUserDescription] = React.useState(false);
   const [userAvatar, setUserAvatar] = React.useState(false);
@@ -50,7 +50,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, handleCardClick }) {
         <ul className="elements__list">
 
           {cards.map((item) =>
-            <Card card={item} name={item.name} id={item._id} link={item.link} likes={item.likes} handleCardClick={handleCardClick} />
+            <Card card={item} name={item.name} id={item._id} link={item.link} likes={item.likes} onConfirmDelete={onConfirmDelete} handleCardClick={handleCardClick} />
 
           )}
         </ul>
