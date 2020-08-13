@@ -64,7 +64,7 @@ function App() {
             id="name"
             placeholder="Имя"
             name="name"
-            tabindex="1"
+            tabIndex="1"
             minLength="2"
             maxLength="40"
             required
@@ -78,7 +78,7 @@ function App() {
             id="activiti"
             placeholder="Род занятий"
             name="about"
-            tabindex="2"
+            tabIndex="2"
             type="text"
             minLength="2"
             maxLength="200"
@@ -100,7 +100,7 @@ function App() {
             id="name-card"
             placeholder="Название"
             name="name"
-            tabindex="1"
+            tabIndex="1"
             type="text"
             minLength="1"
             maxLength="30"
@@ -114,7 +114,7 @@ function App() {
             id="link"
             placeholder="Ссылка на картинку"
             name="link"
-            tabindex="2"
+            tabIndex="2"
             type="url"
             required
           />
@@ -134,7 +134,7 @@ function App() {
             id="link"
             placeholder="Ссылка на картинку"
             name="link"
-            tabindex="2"
+            tabIndex="2"
             type="url"
             required
           />
