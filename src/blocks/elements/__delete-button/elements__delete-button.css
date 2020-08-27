@@ -1,3 +1,5 @@
+@import url("./_hidden/elements__delete-button_hidden.css");
+@import url("./_visible/elements__delete-button_visible.css");
 .elements__delete-button {
   width: 18px;
   height: 19.3px;

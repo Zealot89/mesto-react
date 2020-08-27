@@ -1,5 +1,5 @@
 import React from "react";
-function ImagePopup({ card, close}) {
+function ImagePopup({ card, close }) {
 
   return (
     <section class={`popup popup_review ${(typeof (card) == 'boolean') ? '' : 'popup_active'}`}>

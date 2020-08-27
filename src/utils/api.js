@@ -30,7 +30,7 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       })
       .then((res) => {
-        func(res.name, res.about, res.avatar);
+        func(res);
         return res;
       });
   }
@@ -47,8 +47,12 @@ class Api {
         about: about,
       }),
     }).then((res) => {
-      if (!res.ok) return Promise.reject(`Ошибка: ${res.status}`);
-    });
+      if (res.ok) {
+        return res.json();
+      } return Promise.reject(`Ошибка: ${res.status}`);
+    }).catch((err) => {
+      console.log(err);
+    });;
   }
 
   saveCardData({ name, link }) {
@@ -78,29 +82,49 @@ class Api {
     });
   }
 
-  likeCard(user, item, card) {
-    const myLike = item.likes.find((currentUser, index, array) => {
-      if (currentUser._id === user._id) array.splice(index, 1);
-      return currentUser._id === user._id;
-    });
-    if (!myLike) item.likes.push(user);
-    return fetch(`${this.baseUrl}/cards/likes/${item._id}`, {
-      method: myLike ? "DELETE" : "PUT",
+  changeLikeCardStatus(cardId, isLike) {
+    return fetch(`${this.baseUrl}/cards/likes/${cardId}`, {
+      method: isLike ? ('PUT') : ('DELETE'),
       headers: {
         authorization: this.token,
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (!res.ok) return Promise.reject(`Ошибка: ${res.status}`);
-      res.json().then((res) => {
-        card.querySelector(".elements__like-counter").textContent =
-          res.likes.length;
-        card
-          .querySelector(".elements__button")
-          .classList.toggle("elements__button_active");
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    });
   }
+
+
+  //likeCard(user, item, card) {
+  //  const myLike = item.likes.find((currentUser, index, array) => {
+  //    if (currentUser._id === user._id) array.splice(index, 1);
+  //    return currentUser._id === user._id;
+  //  });
+  //  if (!myLike) item.likes.push(user);
+  //  return fetch(`${this.baseUrl}/cards/likes/${item._id}`, {
+  //    method: myLike ? "DELETE" : "PUT",
+  //    headers: {
+  //      authorization: this.token,
+  //      "Content-Type": "application/json",
+  //    },
+  //  }).then((res) => {
+  //    if (!res.ok) return Promise.reject(`Ошибка: ${res.status}`);
+  //    res.json().then((res) => {
+  //      card.querySelector(".elements__like-counter").textContent =
+  //        res.likes.length;
+  //      card
+  //        .querySelector(".elements__button")
+  //        .classList.toggle("elements__button_active");
+  //    });
+  //  });
+  //}
 
   changeAvatar(url) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
@@ -110,12 +134,15 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        avatar: url.link,
+        avatar: url,
       }),
     }).then((res) => {
-      if (!res.ok) return Promise.reject(`Ошибка: ${res.status}`);
-      return res.json();
-    });
+      if (res.ok) { return res.json(); }
+      return Promise.reject(`Ошибка: ${res.status}`);
+      //return res.json();
+    }).catch((err) => {
+      console.log(err);
+    });;
   }
 }
 
