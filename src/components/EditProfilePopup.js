@@ -47,7 +47,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     required
                     type="text"
                     onChange={handleChangeName}
-
+                    value={name}
                 />
                 <span className="popup__error" id="name-error"></span>
             </label>
@@ -63,7 +63,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
                     maxLength="200"
                     required
                     onChange={handleChangeDescription}
-
+                    value={description}
                 />
                 <span className="popup__error" id="activiti-error"></span>
             </label>

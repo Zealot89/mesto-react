@@ -12,9 +12,7 @@ class Api {
       if (res.ok) return res.json();
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-      .catch((err) => {
-        console.log(err);
-      });
+      ;
   }
 
   getUserData(func) {
@@ -29,10 +27,10 @@ class Api {
         }
         return Promise.reject(`Ошибка: ${res.status}`);
       })
-      .then((res) => {
-        func(res);
-        return res;
-      });
+    //.then((res) => {
+    //  func(res);
+    //  return res;
+    //});
   }
 
   saveUserData({ name, about }) {
@@ -50,9 +48,7 @@ class Api {
       if (res.ok) {
         return res.json();
       } return Promise.reject(`Ошибка: ${res.status}`);
-    }).catch((err) => {
-      console.log(err);
-    });;
+    })
   }
 
   saveCardData({ name, link }) {
@@ -96,9 +92,7 @@ class Api {
         }
         return Promise.reject(`Ошибка: ${res.status}`);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      ;
   }
 
 
