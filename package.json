@@ -1,6 +1,7 @@
 {
   "name": "mesto-react",
   "version": "0.1.0",
+  "homepage": "https://zealot89.github.io/mesto-react",
   "author": "Bobkov Nikolay",
   "description": "A React.js project",
   "private": true,
