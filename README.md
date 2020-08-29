@@ -7,3 +7,5 @@
 * Java-script
 * React
 * БЭМ
+
+[Ссылка на проект](https://zealot89.github.io/mesto-react)
